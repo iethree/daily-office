@@ -1,16 +1,16 @@
 const fs = require('fs');
 const nedb = require('nedb-promises');
-var db = nedb.create('all-days.db')
+var db = nedb.create(__dirname+'/all-days.db')
 
 module.exports = {get, loadAll};
 
 async function get(query){
    try{
-      let r = await db.find(query);
-      if(r.length)
+      let r = await db.findOne(query);
+      if(r)
          return Promise.resolve(r);
       else
-         throw new Error("no results found");
+         return Promise.resolve(null)
    } catch(e){
       return Promise.reject(e);
    }
@@ -49,11 +49,12 @@ function load(file){
 async function loadAll(){
    await db.remove({}, {multi: true}).catch(console.log);
    loader([
-      './json/readings/dol-holy-days.min.json',
-      './json/readings/dol-special-occasions.min.json',
-      './json/readings/dol-year-1.min.json',
-      './json/readings/dol-year-2.min.json'
+      './json/readings/dol-holy-days.json',
+      './json/readings/dol-special-occasions.json',
+      './json/readings/dol-year-1.json',
+      './json/readings/dol-year-2.json'
    ])
    .then(console.log)
    .catch(console.log);
 }
+

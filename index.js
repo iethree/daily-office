@@ -2,11 +2,23 @@ const fs = require('fs');
 const nedb = require('nedb-promises');
 var db = nedb.create(__dirname+'/all-days.db')
 
-module.exports = {get, loadAll};
+module.exports = {get, getMany, loadAll};
 
 async function get(query){
    try{
       let r = await db.findOne(query);
+      if(r)
+         return Promise.resolve(r);
+      else
+         return Promise.resolve(null)
+   } catch(e){
+      return Promise.reject(e);
+   }
+}
+
+async function getMany(query){
+   try{
+      let r = await db.find(query);
       if(r)
          return Promise.resolve(r);
       else

@@ -1,6 +1,6 @@
 {
-  "name": "daily-office",
-  "version": "1.0.0",
+  "name": "daily-office-lectionary",
+  "version": "0.9.0",
   "description": "daily office readings from the Revised Common Lectionary",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "office",
     "RCL"
   ],
-  "author": "",
+  "author": "RPL",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/iethree/daily-office/issues"

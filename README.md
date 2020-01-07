@@ -2,9 +2,9 @@
 
 This project is a query-able wrapper for Reuben Lillie's excellent [JSON Daily Office Lectionary](https://github.com/reubenlillie/daily-office)
 
-## NPM Package API
+## Query API
 
-Simply submit mongoDB stye queries to receive one or more matching daily lectionary entries. 
+Simply submit mongoDB stye queries using `get` or `getMany` to retrieve one or more matching daily lectionary entries.
 
 Everything returns a promise.
 
@@ -69,7 +69,6 @@ lectionary.getMany({title: 'The First Sunday After Pentecost: Trinity Sunday'}).
 
 ## License
 
-
-All code and documenation for this project is licensed under the MIT License. See the [LICENSE.md](https://github.com/reubenlillie/daily-office/blob/master/LICENSE) file for details.
+All code and documenation for this project is MIT Licensed.
 
 The Book of Common Prayer is not and never has been under copyright. The Episcopal Church first ratified the BCP in 1789 and last certified it in 2007.
